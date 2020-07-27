@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Take input from user and add textbox</title>
+	<style type="text/css">
+		div#input-here {
+ 		   margin: 30px 0 0 40px;
+		}
+		.inputs-div {
+		    padding-bottom: 4px;
+		}
+
+	</style>
+	<script type="text/javascript">
+		function myFunction() {
+		  var person = prompt("Please enter Number");
+		  var intTextBox = 0;
+		  if (person != null) {
+		    var no = parseInt(person);
+		    if(isNaN(no)){
+		    	alert('Input is not number.Please take input type number')
+		    }else{
+			    for (i = 1; i <= no; i++) {
+			    	intTextBox++;
+				    var objNewDiv = document.createElement('div');
+				    objNewDiv.setAttribute('id', 'div_' + intTextBox);
+				    objNewDiv.setAttribute('class', 'inputs-div');
+				    objNewDiv.innerHTML = 'Textbox ' + intTextBox + ': <input type="text" class="inputs" id="tb_' + intTextBox + '" name="tb_' + intTextBox + '"/>';
+				    document.getElementById('input-here').appendChild(objNewDiv);
+			    }
+			 }
+		  }
+		}
+		function removing(){
+			document.getElementById('input-here').innerHTML = '';
+		}
+	</script>
+</head>
+<body>
+	<h2>Add here No of textbox</h2>
+<button onclick="myFunction()">Click me for choosing no.</button>
+<button onclick="removing()">remove box</button>
+	<div id="input-here"></div>
+</body>
+</html>
