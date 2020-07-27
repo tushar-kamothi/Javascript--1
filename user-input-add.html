@@ -9,11 +9,16 @@
 		.inputs-div {
 		    padding-bottom: 4px;
 		}
+		.spacing{
+			margin-right: 5px;
+			margin-bottom: 4px;
+
+		}
 
 	</style>
 	<script type="text/javascript">
 		function myFunction() {
-		  var person = prompt("Please enter Number");
+		  var person = prompt("Please enter Number:");
 		  var intTextBox = 0;
 		  if (person != null) {
 		    var no = parseInt(person);
@@ -31,6 +36,20 @@
 			 }
 		  }
 		}
+		function myFunction2(){
+			var no2 = parseInt(prompt("Enter Number : "))
+			if(isNaN(no2)){
+				alert('please add number');
+			}
+			else{
+				for(j=1;j<=no2;j++){
+					var inputing = document.createElement('input');
+					inputing.setAttribute('type','text');
+					inputing.setAttribute('class','spacing');
+					document.getElementById('input-here').appendChild(inputing);
+				}
+			}
+		}
 		function removing(){
 			document.getElementById('input-here').innerHTML = '';
 		}
@@ -39,6 +58,7 @@
 <body>
 	<h2>Add here No of textbox</h2>
 <button onclick="myFunction()">Click me for choosing no.</button>
+<button onclick="myFunction2()">direct input no div</button>
 <button onclick="removing()">remove box</button>
 	<div id="input-here"></div>
 </body>
